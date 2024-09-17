@@ -1,0 +1,196 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-container {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto; /* Center the form */
+  padding: 20px; /* Add padding */
+  animation-duration: 1s;
+}
+
+.dashboard-container {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  animation-duration: 1s;
+  background-color: rgba(198, 232, 239, 0.381);
+  padding: 20px; /* Add padding */
+}
+
+.left-container {
+  background-image: url("https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fGxpZ2h0JTIwY29sb3IlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  border: none;
+  height: 700px;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #495057;
+}
+
+.btn {
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #4b6cb7;
+}
+
+p a {
+  color: #4b6cb7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: #182848;
+}
+
+#userLists {
+  height: 700px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 30px; /* Adjust padding inside the user list */
+}
+
+.user-initials {
+  background-color: #345aa6;
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+
+.chat-messages {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background: #e8f5e9;
+  max-height: 630px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  max-width: 85%;
+  word-wrap: break-word;
+  background-color: #e9ecef;
+  align-self: flex-start;
+  position: relative;
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sent {
+  background-color: #dcf8c6;
+  margin-left: auto;
+}
+
+.received {
+  background-color: #e5e2e2;
+  margin-right: auto;
+}
+
+.options-menu {
+  display: none;
+  position: absolute;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 0; 
+  z-index: 1;
+  width: max-content; 
+  max-width: 200px;
+  overflow: hidden; 
+}
+
+.sent .options-menu {
+  right: 0; 
+}
+
+.received .options-menu {
+  left: 0; 
+}
+
+.options-menu.show {
+  display: block;
+}
+
+.option {
+  padding: 8px 12px; 
+  cursor: pointer; 
+}
+
+.option:hover {
+  background-color: rgba(0, 123, 255, 0.1); 
+  transform: scale(1.05);
+}
+
+.user-message {
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.user-message:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  transform: scale(1.05); /* Slightly increase size on hover */
+  z-index: 1; /* Bring the hovered box to the front */
+}
+
+
+
+/* Media Queries */
+
+@media (max-width: 576px) {
+  .left-container {
+    display: block; /* Show the left container initially */
+  }
+  #userLists {
+    height: auto; /* Allow height to adjust */
+    padding: 15px; /* Adjust padding */
+  }
+  .left-container {
+    margin-top: 5px;
+    height: auto; /* Allow height to adjust */
+    flex-basis: 90%; /* Set basis for smaller screens */
+  }
+  .right-container {
+    display: none; /* Hide the right container initially */
+  }
+
+  .chat-messages {
+    display: none; /* Hide chat messages initially on very small screens */
+  }
+
+  .chat-messages.active {
+    display: block; /* Show chat messages when active */
+    max-height: 580px;
+  }
+}
